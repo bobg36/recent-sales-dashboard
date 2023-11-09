@@ -162,18 +162,19 @@ function renderAxies(axies) {
         const classColor = classColors[axie.class.toLowerCase()] || 'white';
 
         axieElement.innerHTML = `
-            <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">
-                <img src="${axieImageUrl}" alt="Axie #${axie.id}" class="axie-image">
-            </a>
-            <div class="column-thumb">
-                <div>
-                    <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">${axie.id}</a>
-                </div>
-                <div>${getTimeAgo(axie.transferHistory.results[0].timestamp)}</div>
-                    ${(parseFloat(axie.transferHistory.results[0].withPrice) / 1e18).toFixed(3)} ETH
-                </div>
+        <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">
+            <img src="${axieImageUrl}" alt="Axie #${axie.id}" class="axie-image">
+        </a>
+        <div class="column-thumb">
+            <div>
+                <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">
+                    ${axie.id} (${axie.breedCount})
+                </a>
             </div>
-        `;
+            <div>${getTimeAgo(axie.transferHistory.results[0].timestamp)}</div>
+            ${(parseFloat(axie.transferHistory.results[0].withPrice) / 1e18).toFixed(3)} ETH
+        </div>
+    `;
 
         row.appendChild(axieElement);
         i = i + 1

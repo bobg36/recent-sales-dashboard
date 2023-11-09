@@ -141,30 +141,32 @@ function renderAxies(axies) {
         const bodyPartColors = axie.parts.map((part) => classColors[part.class.toLowerCase()] || 'white');
 
         axieElement.innerHTML = `
-            <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">
-                <img src="${axieImageUrl}" alt="Axie #${axie.id}" class="axie-image">
-            </a>
-            <div class="column">
-                <div>
-                    <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">${axie.id}</a>
-                </div>
-                <div>${getTimeAgo(axie.transferHistory.results[0].timestamp)}</div>
-                <div style="font-size: 24px; font-family: Arial, sans-serif;">
-                    ${(parseFloat(axie.transferHistory.results[0].withPrice) / 1e18).toFixed(3)} ETH
-                </div>
+        <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">
+            <img src="${axieImageUrl}" alt="Axie #${axie.id}" class="axie-image">
+        </a>
+        <div class="column">
+            <div>
+                <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">
+                    ${axie.id} (${axie.breedCount}/7)
+                </a>
             </div>
-            <table class="parts">
-                <tr>
-                    ${axie.parts.slice(0, 2).map((part, index) => `<td style="color: ${bodyPartColors[index] || 'white'};">${part.name}</td>`).join('')}
-                </tr>
-                <tr>
-                    ${axie.parts.slice(2, 4).map((part, index) => `<td style="color: ${bodyPartColors[index + 2] || 'white'};">${part.name}</td>`).join('')}
-                </tr>
-                <tr>
-                    ${axie.parts.slice(4, 6).map((part, index) => `<td style="color: ${bodyPartColors[index + 4] || 'white'};">${part.name}</td>`).join('')}
-                </tr>
-            </table>
-        `;
+            <div>${getTimeAgo(axie.transferHistory.results[0].timestamp)}</div>
+            <div style="font-size: 24px; font-family: Arial, sans-serif;">
+                ${(parseFloat(axie.transferHistory.results[0].withPrice) / 1e18).toFixed(3)} ETH
+            </div>
+        </div>
+        <table class="parts">
+            <tr>
+                ${axie.parts.slice(0, 2).map((part, index) => `<td style="color: ${bodyPartColors[index] || 'white'};">${part.name}</td>`).join('')}
+            </tr>
+            <tr>
+                ${axie.parts.slice(2, 4).map((part, index) => `<td style="color: ${bodyPartColors[index + 2] || 'white'};">${part.name}</td>`).join('')}
+            </tr>
+            <tr>
+                ${axie.parts.slice(4, 6).map((part, index) => `<td style="color: ${bodyPartColors[index + 4] || 'white'};">${part.name}</td>`).join('')}
+            </tr>
+        </table>
+    `;
 
         if (parseFloat(axie.transferHistory.results[0].withPrice) / 1e18 > salePriceThreshold) {
             expensiveAxiesCount += 1; // Update the global variable
