@@ -1,3 +1,41 @@
+#column-header {
+    display: flex;
+    background-color: #121212;
+    padding: 20px; /* Add padding to create space around the headers */
+    color: #ffffff; /* Text color */
+    gap: 20px;
+}
+
+#col1-header, #col2-header {
+    width: 100%;
+    text-align: center; /* Center the text horizontally */
+    padding: 10px;
+    background-color: #1e1e1e;
+    color: #ffffff; /* Text color */
+    font-size: 25px; /* Font size set to 50 */
+    border: 1px solid #333333;
+    border-radius: 8px;
+    display: flex;
+
+}
+
+
+
+
+table.parts {
+    width: 30%; /* Set the table width to 100% of its container */
+    border-collapse: separate; /* Separate cell borders to create a gap */
+    border-spacing: 5px; /* Set the gap (spacing) between cells to 5px */
+}
+
+table.parts td {
+    width: 33%; /* Each cell takes up 33% of the table width (for 3 columns) */
+    text-align: center; /* Center align the content in each cell */
+    padding: 5px; /* Add padding to the cells */
+    border: 1px solid white; /* Add a 1px solid white border to each cell */
+    border-radius: 6px;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
@@ -6,10 +44,13 @@ body {
     padding: 20px;
 }
 
+
+
 #axies-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr; /* Create two equal columns */
     gap: 20px;
+    width: 100%; /* Ensure the container takes up the full page width */
 }
 
 .axie {
@@ -26,7 +67,7 @@ body {
     width: auto; /* Width can adjust based on aspect ratio */
     height: 150px;
     object-fit: contain;
-    margin-right: 20px; /* Adds space between the image and the data */
+    margin: 0 20px; /* Adds space on the left and right, while 0 margin on top and bottom */
     border-radius: 4px;
 }
 
@@ -36,6 +77,7 @@ body {
 
 .parts {
     margin-top: 10px;
+    margin-left: auto; /* Align to the right side of the parent container */
 }
 
 .parts p {
@@ -46,6 +88,17 @@ h1 {
     color: #ffffff;
     text-align: center;
     margin-bottom: 40px;
+}
+
+/* Change link color to a light color */
+.column a {
+    color: #3498db; /* Replace with your desired light color */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+/* Change link color on hover */
+.column a:hover {
+    color: #2980b9; /* Replace with your desired hover color */
 }
 
 /* Responsive grid layout for smaller screens */
