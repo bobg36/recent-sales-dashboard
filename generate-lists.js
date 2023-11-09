@@ -6,7 +6,7 @@ let allAxiesCount = 0;
 let expensiveAxiesCount = 0;
 
 // Set the time interval for refresh (30000 milliseconds equals 30 seconds)
-const refreshInterval = 30000;
+const refreshInterval = 30000000;
 
 // Define the function to refresh the page
 function refreshPage() {
@@ -22,7 +22,7 @@ const classColors = {
     beast: 'rgb(255,236,81)',
     bird: 'rgb(255,180,187)',
     aquatic: 'rgb(45,232,242)',
-    plant: 'rgb(204,239,94',
+    plant: 'rgb(204,239,94)',
     dusk: 'dark blue-purple',
     dawn: 'rgb(225,216,255)',
     mech: 'rgb(218,226,226)',
@@ -30,10 +30,26 @@ const classColors = {
     reptile: 'rgb(239,147,255)'
 };
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Get the buttons by their ID
+    const thumbButton = document.getElementById('thumb-button');
+    const listButton = document.getElementById('list-button');
+
+    // Add event listener for the 'Thumb' button
+    thumbButton.addEventListener('click', () => {
+        window.location.href = 'thumb.html'; // Redirect to thumb.html
+    });
+
+    // Add event listener for the 'List' button
+    listButton.addEventListener('click', () => {
+        window.location.href = 'index.html'; // Redirect to index.html (the current page)
+    });
+});
+
 function generateColumnHeaders(allAxiesCount, expensiveAxiesCount) {
     const column1Header = document.createElement('div');
     column1Header.id = 'col1-header';
-    column1Header.textContent = `All Axies (${allAxiesCount})`;
+    column1Header.textContent = `Cheap Axies (${allAxiesCount})`;
 
     const column2Header = document.createElement('div');
     column2Header.id = 'col2-header';
@@ -133,7 +149,6 @@ function renderAxies(axies) {
                     <a href="https://app.axieinfinity.com/marketplace/axies/${axie.id}/" target="_blank" style="color: ${classColor};">${axie.id}</a>
                 </div>
                 <div>${getTimeAgo(axie.transferHistory.results[0].timestamp)}</div>
-                <div>Class: ${axie.class}</div>
                 <div style="font-size: 24px; font-family: Arial, sans-serif;">
                     ${(parseFloat(axie.transferHistory.results[0].withPrice) / 1e18).toFixed(3)} ETH
                 </div>

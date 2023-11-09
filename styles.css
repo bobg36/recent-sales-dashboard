@@ -1,3 +1,67 @@
+.axie-row {
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.axie-thumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* This will center-align text for all child text elements */
+    width: 100%; /* Ensure the div takes the full width */
+    font-family: Arial, sans-serif; /* Use Arial font */
+    font-size: 10px; /* Set the font size to 8 pixels */
+    margin: 0;
+    padding: 0;
+}
+
+.axie-thumb p {
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+}
+
+/* Add this to center the text within any child divs of .axie-thumb */
+.axie-thumb > div {
+    width: 100%; /* Full width */
+    text-align: center; /* Center text */
+}
+
+
+#navigation-buttons {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+
+#navigation-buttons button {
+    width: 50px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0); /* Translucent background */
+    border: none;
+    cursor: pointer;
+    margin-left: 5px; /* Spacing between buttons */
+}
+
+#navigation-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Less translucent on hover */
+}
+
+#navigation-buttons img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px; /* Rounded borders for images as well */
+}
+
+
+
 #column-header {
     display: flex;
     background-color: #121212;
@@ -8,7 +72,6 @@
 
 #col1-header, #col2-header {
     width: 100%;
-    text-align: center; /* Center the text horizontally */
     padding: 10px;
     background-color: #1e1e1e;
     color: #ffffff; /* Text color */
@@ -23,7 +86,7 @@
 
 
 table.parts {
-    width: 30%; /* Set the table width to 100% of its container */
+    width: 50%; /* Set the table width to 100% of its container */
     border-collapse: separate; /* Separate cell borders to create a gap */
     border-spacing: 5px; /* Set the gap (spacing) between cells to 5px */
 }
@@ -32,8 +95,10 @@ table.parts td {
     width: 33%; /* Each cell takes up 33% of the table width (for 3 columns) */
     text-align: center; /* Center align the content in each cell */
     padding: 5px; /* Add padding to the cells */
-    border: 1px solid white; /* Add a 1px solid white border to each cell */
+    border: 1px solid gray; /* Add a 1px solid white border to each cell */
     border-radius: 6px;
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+
 }
 
 body {
@@ -53,22 +118,48 @@ body {
     width: 100%; /* Ensure the container takes up the full page width */
 }
 
+#axies-container-row {
+    display: grid;
+    margin: 0 0;
+    padding: 0 0;
+    width: 100%; /* Ensure the container takes up the full page width */
+}
+
+
+
 .axie {
     display: flex;
     align-items: center;
     border: 1px solid #333333;
-    padding: 10px;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+}
+
+.axie-thumb {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Align items to the start of the flex container */
+    border: 1px solid #333333;
     border-radius: 8px;
     background-color: #1e1e1e;
+    margin-top: 5px;
+}
+
+.axie-thumb img {
+    width: 100%; /* Make the image take up the entire container */
+    height: 100%;
+    object-fit: cover; /* Zoom in and crop the image to fill the container */
+    clip-path: inset(15% 15% 15% 15%); /* Crop 20% from all sides */
 }
 
 .axie-image {
     flex-shrink: 0; /* Prevents the image from shrinking */
     width: auto; /* Width can adjust based on aspect ratio */
-    height: 150px;
+    height: 120px;
     object-fit: contain;
-    margin: 0 20px; /* Adds space on the left and right, while 0 margin on top and bottom */
     border-radius: 4px;
+    clip-path: inset(20% 20% 20% 20%); /* Crop 20% from all sides */
+
 }
 
 .axie-data {
@@ -76,7 +167,6 @@ body {
 }
 
 .parts {
-    margin-top: 10px;
     margin-left: auto; /* Align to the right side of the parent container */
 }
 
