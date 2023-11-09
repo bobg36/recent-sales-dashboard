@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+#axies-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.axie {
+    display: flex;
+    align-items: center;
+    border: 1px solid #333333;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+}
+
+.axie-image {
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    width: auto; /* Width can adjust based on aspect ratio */
+    height: 150px;
+    object-fit: contain;
+    margin-right: 20px; /* Adds space between the image and the data */
+    border-radius: 4px;
+}
+
+.axie-data {
+    flex-grow: 1; /* Allows the data section to fill the remaining space */
+}
+
+.parts {
+    margin-top: 10px;
+}
+
+.parts p {
+    margin: 5px 0;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Responsive grid layout for smaller screens */
+@media only screen and (max-width: 600px) {
+    #axies-container {
+        grid-template-columns: 1fr; /* Adjust to a single column layout on smaller screens */
+    }
+}
