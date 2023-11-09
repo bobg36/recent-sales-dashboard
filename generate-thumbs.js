@@ -6,7 +6,7 @@ let allAxiesCount = 0;
 let expensiveAxiesCount = 0;
 
 // Set the time interval for refresh (30000 milliseconds equals 30 seconds)
-const refreshInterval = 30000000;
+const refreshInterval = 60000;
 
 // Define the function to refresh the page
 function refreshPage() {
@@ -134,6 +134,7 @@ function renderAxies(axies) {
     const maxRows = 7;
     const itemsPerRow = 14;
 
+    let i = 0;
     axies.forEach((axie, index) => {
         // Check if a new row is needed
         if (index % itemsPerRow === 0 && index !== 0) {
@@ -147,7 +148,16 @@ function renderAxies(axies) {
         }
 
         const axieElement = document.createElement('div');
-        axieElement.className = 'axie-thumb';
+
+        // Assuming axie.transferHistory.results is an array with at least one item
+        // and axieElement is a previously defined DOM element
+        console.log(axie.transferHistory.results[0].withPrice)
+        console.log(salePriceThreshold)
+        if ((parseFloat(axie.transferHistory.results[0].withPrice) / 1e18).toFixed(3) > salePriceThreshold) {
+            axieElement.className = 'axie-thumb-expensive';
+        } else {
+            axieElement.className = 'axie-thumb';
+        }
         const axieImageUrl = `https://assets.axieinfinity.com/axies/${axie.id}/axie/axie-full-transparent.png`;
         const classColor = classColors[axie.class.toLowerCase()] || 'white';
 
@@ -166,6 +176,7 @@ function renderAxies(axies) {
         `;
 
         row.appendChild(axieElement);
+        i = i + 1
     });
 }
 

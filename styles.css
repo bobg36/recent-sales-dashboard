@@ -2,7 +2,7 @@
     display: flex;
     justify-content: start;
     flex-wrap: nowrap;
-    gap: 10px;
+    gap: 3px;
     margin: 0;
     padding: 0;
 }
@@ -16,8 +16,35 @@
     width: 100%; /* Ensure the div takes the full width */
     font-family: Arial, sans-serif; /* Use Arial font */
     font-size: 10px; /* Set the font size to 8 pixels */
-    margin: 0;
-    padding: 0;
+    border: 2px solid #333333;
+    border-radius: 3px;
+    background-color: #1e1e1e;
+    margin-top: 3px;
+}
+
+.axie-thumb-expensive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* This will center-align text for all child text elements */
+    width: 100%; /* Ensure the div takes the full width */
+    font-family: Arial, sans-serif; /* Use Arial font */
+    font-size: 10px; /* Set the font size to 8 pixels */
+    border: 2px solid #888;
+    border-radius: 3px;
+    background-color: #333;
+    margin-top: 3px;
+}
+
+.axie-thumb-expensive > div {
+    width: 100%; /* Full width */
+    text-align: center; /* Center text */
+}
+
+.axie-thumb-expensive p {
+    font-family: Arial, sans-serif;
+    font-size: 8px;
 }
 
 .axie-thumb p {
@@ -135,17 +162,16 @@ body {
     background-color: #1e1e1e;
 }
 
-.axie-thumb {
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Align items to the start of the flex container */
-    border: 1px solid #333333;
-    border-radius: 8px;
-    background-color: #1e1e1e;
-    margin-top: 5px;
-}
+
 
 .axie-thumb img {
+    width: 100%; /* Make the image take up the entire container */
+    height: 100%;
+    object-fit: cover; /* Zoom in and crop the image to fill the container */
+    clip-path: inset(15% 15% 15% 15%); /* Crop 20% from all sides */
+}
+
+.axie-thumb-expensive img {
     width: 100%; /* Make the image take up the entire container */
     height: 100%;
     object-fit: cover; /* Zoom in and crop the image to fill the container */
