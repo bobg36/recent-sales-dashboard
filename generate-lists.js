@@ -6,7 +6,7 @@ let allAxiesCount = 0;
 let expensiveAxiesCount = 0;
 
 // Set the time interval for refresh (30000 milliseconds equals 30 seconds)
-const refreshInterval = 30000000;
+const refreshInterval = 60000;
 
 // Define the function to refresh the page
 function refreshPage() {
