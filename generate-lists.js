@@ -1,12 +1,12 @@
 const apiEndpoint = "https://api-gateway.skymavis.com/graphql/marketplace";
-const apiKey = "plPOeccBmsoqRqkTnDNfsgdzD420jwBA";
+const apiKey = "iZ2LYD7LDE4Tc9N4CL4YTYM3p4PaxOvj";
 const salePriceThreshold = 0.0075; 
 
 let allAxiesCount = 0;
 let expensiveAxiesCount = 0;
 
 // Set the time interval for refresh (30000 milliseconds equals 30 seconds)
-const refreshInterval = 60000;
+const refreshInterval = 120000;
 
 // Define the function to refresh the page
 function refreshPage() {
