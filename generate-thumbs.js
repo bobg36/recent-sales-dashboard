@@ -1,6 +1,11 @@
+const AXIE_IMAGE_STYLE = 'new'; // Change this to 'classic' or 'new'
+const AXIE_IMAGE_BASE_URL = AXIE_IMAGE_STYLE === 'classic' 
+    ? 'https://assets.axieinfinity.com/axies'
+    : 'https://axiecdn.axieinfinity.com/axies';
+
 const apiEndpoint = "https://api-gateway.skymavis.com/graphql/marketplace";
 const apiKey = "iZ2LYD7LDE4Tc9N4CL4YTYM3p4PaxOvj";
-const salePriceThreshold = 0.0075; 
+const salePriceThreshold = 0.0049; 
 
 let allAxiesCount = 0;
 let expensiveAxiesCount = 0;
@@ -158,7 +163,7 @@ function renderAxies(axies) {
         } else {
             axieElement.className = 'axie-thumb';
         }
-        const axieImageUrl = `https://assets.axieinfinity.com/axies/${axie.id}/axie/axie-full-transparent.png`;
+        const axieImageUrl = `${AXIE_IMAGE_BASE_URL}/${axie.id}/axie/axie-full-transparent.png`;
         const classColor = classColors[axie.class.toLowerCase()] || 'white';
 
         axieElement.innerHTML = `
